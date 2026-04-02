@@ -77,10 +77,11 @@ setTimeout(() => {
 document.getElementById('contactForm').addEventListener('submit', e => {
   e.preventDefault();
   const btn = e.target.querySelector('button');
-  btn.textContent = 'Message Sent!';
+  const lang = localStorage.getItem('lang') || 'fr';
+  btn.textContent = translations[lang]['form.sent'];
   btn.style.background = '#22c55e';
   setTimeout(() => {
-    btn.textContent = 'Send Message';
+    btn.textContent = translations[lang]['form.submit'];
     btn.style.background = '';
     e.target.reset();
   }, 2500);

@@ -129,6 +129,37 @@ img {
   width: 100%;
 }
 
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  margin-left: 8px;
+}
+
+.lang-flag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  font-family: var(--font);
+  letter-spacing: 0.5px;
+}
+
+.lang-toggle:hover {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.lang-toggle:hover .lang-flag {
+  color: var(--accent);
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
