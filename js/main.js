@@ -5,14 +5,6 @@
 (function () {
   'use strict';
 
-  // ===== LOAD ASSETS =====
-  if (typeof ASSETS !== 'undefined') {
-    document.querySelectorAll('[data-asset]').forEach(function (img) {
-      var k = img.getAttribute('data-asset');
-      if (ASSETS[k]) img.src = ASSETS[k];
-    });
-  }
-
   var isMobile = window.innerWidth < 768;
   var isTouch = 'ontouchstart' in window;
 
@@ -21,7 +13,7 @@
   var wipe = document.getElementById('preloadWipe');
   var fill = document.getElementById('preloadFill');
   var pct = document.getElementById('preloadPercent');
-  var imgs = document.querySelectorAll('img');
+  var imgs = document.querySelectorAll('img:not([loading="lazy"])');
   var loaded = 0;
   var total = imgs.length || 1;
 
@@ -43,7 +35,7 @@
   fill.style.width = p0 + '%';
   pct.textContent = p0 + '%';
   if (loaded >= total) setTimeout(finishPreload, 600);
-  setTimeout(finishPreload, 4000); // Hard timeout
+  setTimeout(finishPreload, 2500); // Hard timeout
 
   var preloadDone = false;
 
