@@ -244,18 +244,6 @@
       position: relative; overflow: hidden;
     }
     .btn-cta:hover { background: var(--red-dark); border-color: var(--red-dark); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(227,30,36,0.3); }
-    .cart-btn {
-      width: 46px; height: 46px; border-radius: var(--radius-sm); border: 2px solid var(--cream-dark);
-      display: flex; align-items: center; justify-content: center; cursor: pointer;
-      transition: all var(--transition); background: transparent; position: relative;
-    }
-    .cart-btn:hover { background: #FFE0E0; border-color: var(--red); }
-    .cart-btn svg { width: 20px; height: 20px; stroke: var(--text); fill: none; }
-    .cart-badge {
-      position: absolute; top: -6px; right: -6px; width: 20px; height: 20px;
-      background: var(--red); color: var(--white); font-size: 0.65rem; font-weight: 800;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    }
     .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 5px; }
     .nav-toggle span { width: 26px; height: 2.5px; background: var(--text); border-radius: 3px; transition: var(--transition); }
 
@@ -503,45 +491,9 @@
     }
     @keyframes kenBurns { 0% { transform: scale(1) translate(0,0); } 100% { transform: scale(1.08) translate(-2%,-1%); } }
     .product-card:hover .product-image img { animation-play-state: paused; transform: scale(1.12); transition: transform 0.6s var(--ease-out-expo); }
-    .product-badge {
-      position: absolute; top: 14px; left: 14px; background: var(--red); color: var(--white);
-      padding: 5px 14px; border-radius: var(--radius-full); font-size: 0.7rem;
-      font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; z-index: 2;
-    }
-    .product-heart {
-      position: absolute; top: 14px; right: 14px; width: 36px; height: 36px;
-      background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; cursor: pointer;
-      transition: all var(--transition); z-index: 2; border: none;
-    }
-    .product-heart:hover { background: #FFE0E0; transform: scale(1.1); }
-    .product-heart svg { width: 16px; height: 16px; stroke: var(--red); fill: none; stroke-width: 2; transition: fill 0.3s, transform 0.3s var(--spring); }
-    .product-heart.liked svg { fill: var(--red); animation: heartBounce 0.4s var(--spring); }
-    @keyframes heartBounce { 0% { transform: scale(1); } 50% { transform: scale(1.4); } 100% { transform: scale(1); } }
-    .heart-particle {
-      position: absolute; width: 4px; height: 4px; background: var(--red); border-radius: 50%;
-      pointer-events: none; animation: heartBurst 0.6s ease-out forwards;
-    }
-    @keyframes heartBurst {
-      0% { opacity: 1; transform: translate(0,0) scale(1); }
-      100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0); }
-    }
-    .product-info { padding: 20px 22px; }
-    .product-info h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 800; margin-bottom: 4px; }
-    .product-rating { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
-    .stars { color: #FFB800; font-size: 0.82rem; letter-spacing: 1px; }
-    .rating-count { font-size: 0.78rem; color: var(--text-muted); }
-    .price-row { display: flex; justify-content: space-between; align-items: center; }
-    .price { font-weight: 800; font-size: 1.25rem; color: var(--dark); }
-    .add-cart-btn {
-      width: 42px; height: 42px; border-radius: 50%; background: var(--red); color: var(--white);
-      border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: all var(--transition); position: relative; overflow: hidden;
-    }
-    .add-cart-btn:hover { background: var(--red-dark); transform: scale(1.1) rotate(90deg); }
-    .add-cart-btn.bounce { animation: cartBounce 0.5s var(--spring); }
-    @keyframes cartBounce { 0% { transform: scale(1); } 30% { transform: scale(0.8); } 60% { transform: scale(1.15); } 100% { transform: scale(1); } }
-    .add-cart-btn svg { width: 18px; height: 18px; }
+    .product-info { padding: 20px 22px; text-align: center; }
+    .product-info h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+    .product-info p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
 
     /* ===== BANNER ===== */
     .banner { padding: 90px 0; }
@@ -576,23 +528,6 @@
     .story-stats { display: flex; gap: 40px; margin-top: 32px; }
     .stat-item h3 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: var(--red); }
     .stat-item span { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
-
-    /* ===== TESTIMONIALS ===== */
-    .testimonials { padding: 90px 0; }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .testimonial-card {
-      background: var(--white); border-radius: var(--radius-md); padding: 32px;
-      transition: all var(--transition); position: relative; border: 2px solid transparent;
-    }
-    .testimonial-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(227,30,36,0.1); }
-    .testimonial-card .quote-icon { position: absolute; top: 16px; right: 24px; opacity: 0.06; font-size: 5rem; font-family: 'Playfair Display', serif; color: var(--red); line-height: 1; }
-    .testimonial-stars { display: flex; gap: 3px; margin-bottom: 18px; }
-    .testimonial-stars svg { width: 16px; height: 16px; fill: #FFB800; }
-    .testimonial-card .review { font-size: 0.95rem; line-height: 1.75; color: var(--text); margin-bottom: 24px; }
-    .testimonial-author { display: flex; align-items: center; gap: 14px; }
-    .author-avatar { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 3px solid var(--cream); }
-    .author-info h4 { font-weight: 700; font-size: 0.92rem; color: var(--dark); }
-    .author-info span { font-size: 0.8rem; color: var(--text-muted); }
 
     /* ===== NEWSLETTER ===== */
     .newsletter { padding: 90px 0; background: var(--white); }
@@ -684,7 +619,6 @@
       .banner-inner { padding: 50px; }
       .banner-left p { margin: 0 auto 32px; }
       .story-illustrations { max-width: 400px; margin: 0 auto; }
-      .testimonials-grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
       .story-stats { justify-content: center; }
     }
@@ -769,11 +703,7 @@
         <li><a href="#">CONTACT</a></li>
       </ul>
       <div class="nav-right">
-        <a href="#" class="btn-cta magnetic">COMMANDER</a>
-        <button class="cart-btn" aria-label="Panier">
-          <svg viewBox="0 0 24 24" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-          <span class="cart-badge">2</span>
-        </button>
+        <a href="#story" class="btn-cta magnetic">NOUS TROUVER</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -800,7 +730,7 @@
             </h1>
             <p class="hero-subtitle">CHOCOLAT DE SPECIALITE<br>CHAUD ET FROID<br>FAIT MAISON</p>
             <div class="hero-actions">
-              <a href="#" class="btn-primary magnetic">COMMANDER</a>
+              <a href="#story" class="btn-primary magnetic">NOUS TROUVER</a>
               <a href="#" class="btn-ghost">NOTRE CARTE <svg class="arrow-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
             </div>
           </div>
@@ -852,8 +782,8 @@
   <section class="products">
     <div class="container">
       <div class="section-center reveal">
-        <h2 class="clip-reveal"><span>Nos Best-Sellers</span></h2>
-        <p>Les chocolats preferes de notre communaute</p>
+        <h2 class="clip-reveal"><span>Notre Carte</span></h2>
+        <p>Decouvrez nos creations chocolatees</p>
       </div>
       <div class="products-tabs reveal">
         <div class="tab-indicator" id="tabIndicator"></div>
@@ -867,32 +797,38 @@
         <div class="product-card tilt-card">
           <div class="product-image">
             <img src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?w=400&h=300&fit=crop&q=80" alt="Chocolat Chaud Signature" loading="lazy">
-            <span class="product-badge">Signature</span>
-            <button class="product-heart" aria-label="Favoris"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
           </div>
-          <div class="product-info"><h3>Chocolat Chaud Signature</h3><div class="product-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rating-count">(94)</span></div><div class="price-row"><span class="price">5,20 &#8364;</span><button class="add-cart-btn magnetic" aria-label="Ajouter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button></div></div>
+          <div class="product-info">
+            <h3>Chocolat Chaud Signature</h3>
+            <p>Chocolat noir 70% fondu dans du lait cremeux, une pointe de vanille et beaucoup d'amour. Le genre de tasse qui te fait oublier ton lundi.</p>
+          </div>
         </div>
         <div class="product-card tilt-card">
           <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop&q=80" alt="Frappe Chocolat" loading="lazy">
-            <button class="product-heart" aria-label="Favoris"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop&q=80" alt="Frappe Chocolat Glace" loading="lazy">
           </div>
-          <div class="product-info"><h3>Frappe Chocolat Glace</h3><div class="product-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rating-count">(72)</span></div><div class="price-row"><span class="price">6,50 &#8364;</span><button class="add-cart-btn magnetic" aria-label="Ajouter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button></div></div>
+          <div class="product-info">
+            <h3>Frappe Chocolat Glace</h3>
+            <p>Du chocolat au lait glace, de la creme fouettee maison et des copeaux de chocolat noir. Parfait pour les jours ou le soleil tape un peu trop fort.</p>
+          </div>
         </div>
         <div class="product-card tilt-card">
           <div class="product-image">
             <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop&q=80" alt="Fondant au Chocolat" loading="lazy">
-            <span class="product-badge">Populaire</span>
-            <button class="product-heart" aria-label="Favoris"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
           </div>
-          <div class="product-info"><h3>Fondant au Chocolat</h3><div class="product-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span><span class="rating-count">(58)</span></div><div class="price-row"><span class="price">7,90 &#8364;</span><button class="add-cart-btn magnetic" aria-label="Ajouter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button></div></div>
+          <div class="product-info">
+            <h3>Fondant au Chocolat</h3>
+            <p>Un coeur coulant qui coule vraiment (promis). Ganache onctueuse, cacao pur en poudre, et ce petit moment de bonheur quand tu casses la croute.</p>
+          </div>
         </div>
         <div class="product-card tilt-card">
           <div class="product-image">
             <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=400&h=300&fit=crop&q=80" alt="Coffret Degustation" loading="lazy">
-            <button class="product-heart" aria-label="Favoris"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
           </div>
-          <div class="product-info"><h3>Coffret Degustation</h3><div class="product-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rating-count">(41)</span></div><div class="price-row"><span class="price">24,90 &#8364;</span><button class="add-cart-btn magnetic" aria-label="Ajouter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button></div></div>
+          <div class="product-info">
+            <h3>Coffret Degustation</h3>
+            <p>12 chocolats artisanaux : noir, lait, blanc, aux noisettes, au caramel... Le cadeau parfait pour ton pote qui dit "j'aime pas trop le sucre" (on sait tous que c'est faux).</p>
+          </div>
         </div>
       </div>
     </div>
@@ -905,7 +841,7 @@
         <div class="banner-left">
           <h2>Prepare avec amour, savoure avec passion</h2>
           <p>Notre chocolat artisanal est elabore chaque jour dans notre atelier parisien. Des feves de cacao d'exception, des saveurs intenses.</p>
-          <a href="#" class="btn-white magnetic">DECOUVRIR NOS CHOCOLATS</a>
+          <a href="#story" class="btn-white magnetic">NOTRE HISTOIRE</a>
         </div>
         <div class="banner-right">
           <img class="banner-illustration" data-asset="man_serving" src="assets/pepite-rouge/illustrations/man-serving.png" alt="Illustration chocolatier">
@@ -932,36 +868,6 @@
             <div class="stat-item"><h3 data-target="15" data-suffix="K+">0</h3><span>Chocolats servis/mois</span></div>
             <div class="stat-item"><h3 data-target="98" data-suffix="%">0</h3><span>Clients satisfaits</span></div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="testimonials">
-    <div class="container">
-      <div class="section-center reveal">
-        <h2 class="clip-reveal"><span>Ce que disent nos clients</span></h2>
-        <p>La communaute Pepite Rouge partage son experience</p>
-      </div>
-      <div class="testimonials-grid stagger-children">
-        <div class="testimonial-card tilt-card">
-          <span class="quote-icon">"</span>
-          <div class="testimonial-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-          <p class="review">"Le meilleur chocolat chaud de Paris. L'ambiance est incroyable et le chocolat signature est devenu mon rituel quotidien."</p>
-          <div class="testimonial-author"><img class="author-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&q=80" alt="Claire M." loading="lazy"><div class="author-info"><h4>Claire Martin</h4><span>Habituee depuis 2020</span></div></div>
-        </div>
-        <div class="testimonial-card tilt-card">
-          <span class="quote-icon">"</span>
-          <div class="testimonial-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-          <p class="review">"Les fondants au chocolat sont divins. Et le branding rouge est tellement cool, on se sent dans un univers unique !"</p>
-          <div class="testimonial-author"><img class="author-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80" alt="Thomas B." loading="lazy"><div class="author-info"><h4>Thomas Berger</h4><span>Fan de chocolat</span></div></div>
-        </div>
-        <div class="testimonial-card tilt-card">
-          <span class="quote-icon">"</span>
-          <div class="testimonial-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-          <p class="review">"La livraison est parfaite : chocolat chaud, patisseries fraiches. L'abonnement mensuel est un game-changer pour mes matins."</p>
-          <div class="testimonial-author"><img class="author-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80" alt="Sophie D." loading="lazy"><div class="author-info"><h4>Sophie Durand</h4><span>Abonnee mensuelle</span></div></div>
         </div>
       </div>
     </div>
@@ -1204,31 +1110,6 @@
         });
       });
     }
-
-    // ===== HEART FAVORITE =====
-    document.querySelectorAll('.product-heart').forEach(btn => {
-      btn.addEventListener('click', function() {
-        this.classList.toggle('liked');
-        if (this.classList.contains('liked')) {
-          for (let i = 0; i < 6; i++) {
-            const p = document.createElement('span');
-            p.className = 'heart-particle';
-            p.style.setProperty('--tx', (Math.random() * 30 - 15) + 'px');
-            p.style.setProperty('--ty', (-5 - Math.random() * 20) + 'px');
-            this.appendChild(p);
-            setTimeout(() => p.remove(), 600);
-          }
-        }
-      });
-    });
-
-    // ===== ADD TO CART BOUNCE =====
-    document.querySelectorAll('.add-cart-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        this.classList.add('bounce');
-        setTimeout(() => this.classList.remove('bounce'), 500);
-      });
-    });
 
     // ===== TAB INDICATOR =====
     const tabIndicator = document.getElementById('tabIndicator');
