@@ -784,7 +784,8 @@
             </svg>
             <h1 class="hero-title">
               <div class="line">SAVOUREZ <span class="badge badge-red">FRAIS</span></div>
-              <div class="line">LE CHOCOLAT <span class="badge badge-dark">ARTISAN</span></div>
+              <div class="line">LE <span class="badge badge-dark">ARTISAN</span></div>
+              <div class="line">CHOCOLAT</div>
             </h1>
             <p class="hero-subtitle">CHOCOLAT DE SPECIALITE<br>CHAUD ET FROID<br>FAIT MAISON</p>
             <div class="hero-actions">
@@ -1061,7 +1062,13 @@
             const text = node.textContent;
             const frag = document.createDocumentFragment();
             text.split('').forEach(ch => {
-              if (ch === ' ') { frag.appendChild(document.createTextNode(' ')); return; }
+              if (ch === ' ') {
+                const sp = document.createElement('span');
+                sp.style.width = '0.3em';
+                sp.style.display = 'inline-block';
+                frag.appendChild(sp);
+                return;
+              }
               const span = document.createElement('span');
               span.className = 'char';
               span.textContent = ch;
