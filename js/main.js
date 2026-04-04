@@ -152,6 +152,7 @@
     var cursorRing = cursor.children[1];
     document.addEventListener('mousemove', function (e) {
       mx = e.clientX; my = e.clientY;
+      if (!cursor.classList.contains('active')) cursor.classList.add('active');
       if (!cursorMoving) { cursorMoving = true; cursorLoop(); }
     }, { passive: true });
     var hoverSel = 'a, button, .product-card, .category-card, .tab-btn';

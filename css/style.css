@@ -219,7 +219,9 @@ body::after {
   z-index: 9998;
   pointer-events: none;
   mix-blend-mode: difference;
+  opacity: 0;
 }
+.cursor.active { opacity: 1; }
 
 .cursor-dot {
   width: 8px;
