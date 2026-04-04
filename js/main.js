@@ -311,9 +311,88 @@
     document.getElementById('navLinks').classList.toggle('active');
   });
 
+  // ===== FORM HELPERS =====
+  function showFormFeedback(form, success, message) {
+    var existing = form.querySelector('.form-feedback');
+    if (existing) existing.remove();
+
+    var div = document.createElement('div');
+    div.className = 'form-feedback ' + (success ? 'form-feedback-success' : 'form-feedback-error');
+    div.textContent = message;
+    form.appendChild(div);
+
+    setTimeout(function () { div.remove(); }, 5000);
+  }
+
+  function setFormLoading(btn, loading) {
+    if (loading) {
+      btn.dataset.originalText = btn.textContent;
+      btn.textContent = 'ENVOI...';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+    } else {
+      btn.textContent = btn.dataset.originalText || btn.textContent;
+      btn.disabled = false;
+      btn.style.opacity = '';
+    }
+  }
+
   // ===== NEWSLETTER FORM =====
-  document.getElementById('newsletterForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-  });
+  var newsletterForm = document.getElementById('newsletterForm');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = this.querySelector('button[type="submit"]');
+      var email = this.querySelector('input[type="email"]').value;
+
+      setFormLoading(btn, true);
+      fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        showFormFeedback(newsletterForm, data.success, data.message);
+        if (data.success) newsletterForm.reset();
+      })
+      .catch(function () {
+        showFormFeedback(newsletterForm, false, 'Erreur de connexion. Reessayez.');
+      })
+      .finally(function () { setFormLoading(btn, false); });
+    });
+  }
+
+  // ===== CONTACT FORM =====
+  var contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = this.querySelector('button[type="submit"]');
+
+      var data = {
+        name: this.querySelector('#name').value,
+        email: this.querySelector('#email').value,
+        subject: this.querySelector('#subject').value,
+        message: this.querySelector('#message').value
+      };
+
+      setFormLoading(btn, true);
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function (r) { return r.json(); })
+      .then(function (result) {
+        showFormFeedback(contactForm, result.success, result.message);
+        if (result.success) contactForm.reset();
+      })
+      .catch(function () {
+        showFormFeedback(contactForm, false, 'Erreur de connexion. Reessayez.');
+      })
+      .finally(function () { setFormLoading(btn, false); });
+    });
+  }
 
 })();

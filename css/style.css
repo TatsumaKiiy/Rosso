@@ -1744,6 +1744,27 @@ body::after {
 }
 .contact-social-link svg { width: 18px; height: 18px; }
 
+/* Form feedback */
+.form-feedback {
+  margin-top: 16px;
+  padding: 14px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 600;
+  animation: fadeIn 0.3s ease;
+}
+.form-feedback-success {
+  background: #E8F5E9;
+  color: #2E7D32;
+  border: 1px solid #A5D6A7;
+}
+.form-feedback-error {
+  background: #FFEBEE;
+  color: #C62828;
+  border: 1px solid #EF9A9A;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+
 /* Map */
 .contact-map { padding: 0 0 90px; }
 .contact-map-inner {

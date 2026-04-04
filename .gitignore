@@ -25,3 +25,6 @@ dist/
 # Environment
 .env
 .env.local
+
+# Database
+server/db/*.sqlite

@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "portfolio",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "."],
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["server/index.js"],
       "port": 3000
     }
   ]
